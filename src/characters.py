@@ -4,12 +4,12 @@ from random import randint
 class __Character():
     """A sketch of the all game characters."""
 
-    def __init__(self, name, attack, defense, speed):
+    def __init__(self, name, hp, attack, armor, speed):
         self.name = name
         self.attack = attack
-        self.defense = defense
+        self.armor = armor
         self.speed = speed
-        self.__hp = 0
+        self.__hp = hp
         self.__prng_spread = 1
 
     def is_alive(self):
@@ -19,11 +19,14 @@ class __Character():
         enemy_speed = self.__randomize_attribute(enemy.speed)
 
         for i in range(enemy_speed):
-            defense = self.__randomize_attribute(self.defense)
+            armor = self.__randomize_attribute(self.armor)
             enemy_attack = self.__randomize_attribute(enemy.attack)
+            self.__hp -= enemy_attack - armor
 
-            if self.__hp >= enemy_attack - defense:
-                self.__hp -= enemy_attack - defense
+            print(self.name + ' (current hp: ' + str(self.__hp) + ') lost '
+                  + str(enemy_attack - armor) + ' hp (' + str(enemy_attack)
+                  + ' damage - ' + str(armor) + ' armor) by '
+                  + str(enemy.name) + '.')
 
     def __randomize_attribute(self, attribute):
         """Retrun a pseudo-random value of a given attribute.
@@ -35,9 +38,9 @@ class __Character():
                        attribute + self.__prng_spread)
 
 
-CHARACTERS = {'Knight: ': __Character(name='Knight', attack=17, defense=6,
-                                      speed=2),
-              'Oathbreaker': __Character(name='Oathbreaker', attack=7,
-                                         defense=5, speed=4),
-              'Wizard': __Character(name='Wizard', attack=8, defense=10,
+CHARACTERS = {'Knight': __Character(name='Knight', hp=100, attack=17,
+                                      armor=6, speed=2),
+              'Oathbreaker': __Character(name='Oathbreaker', hp=60, attack=7,
+                                         armor=5, speed=4),
+              'Wizard': __Character(name='Wizard', hp=120, attack=8, armor=10,
                                     speed=3)}
