@@ -35,6 +35,9 @@ class __Character():
                        attribute + self.__prng_spread)
 
 
-CHARACTERS = {'Knight: ': __Character(name='Knight', attack=17, defense=6, speed=2),
-              'Oathbreaker': __Character(name='Oathbreaker', attack=7, defense=5, speed=4),
-              'Wizard': __Character(name='Wizard', attack=8, defense=10, speed=3)}
+CHARACTERS = {'Knight: ': __Character(name='Knight', attack=17, defense=6,
+                                      speed=2),
+              'Oathbreaker': __Character(name='Oathbreaker', attack=7,
+                                         defense=5, speed=4),
+              'Wizard': __Character(name='Wizard', attack=8, defense=10,
+                                    speed=3)}
