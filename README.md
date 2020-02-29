@@ -1,2 +1,2 @@
 # Initial RPG
-Recreation of my first own app which was uncompleted in the beginning of 2018.
+RPG wannabe - recreation of my first own app attempt from early 2018.
