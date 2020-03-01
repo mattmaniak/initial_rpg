@@ -40,8 +40,11 @@ class App:
 
         while self.player.is_alive() and self.enemy.is_alive():
             if self.player_starts:
-                self.enemy.receive_damage(self.player)
-                self.player.receive_damage(self.enemy)
+                if not self.enemy.receive_damage(self.player) \
+                        or not self.player.receive_damage(self.enemy):
+                    break
             else:
-                self.player.receive_damage(self.enemy)
-                self.enemy.receive_damage(self.player)
+                if not self.player.receive_damage(self.enemy) \
+                        or not self.enemy.receive_damage(self.player):
+                    break
+            print('')

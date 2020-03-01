@@ -23,10 +23,13 @@ class __Character():
             enemy_attack = self.__randomize_attribute(enemy.attack)
             self.hp -= enemy_attack - armor
 
-            print(self.name + ' (current hp: ' + str(self.hp) + ') lost '
-                  + str(enemy_attack - armor) + ' hp (' + str(enemy_attack)
-                  + ' damage - ' + str(armor) + ' armor) by '
-                  + str(enemy.name) + '.')
+            print(self.name
+                  + f' (current hp: {self.hp}, lost {enemy_attack - armor} hp'
+                  + f' ({enemy_attack} damage - {armor} armor) by'
+                  + f' {enemy.name}.')
+
+            if self.is_alive(): return True
+            else: return False
 
     def __randomize_attribute(self, attribute):
         """Retrun a pseudo-random value of a given attribute.
@@ -38,9 +41,9 @@ class __Character():
                        attribute + self.__prng_spread)
 
 
-all = {'Knight': __Character(name='Knight', hp=100, attack=17, armor=6,
+all = {'Knight': __Character(name='Knight', hp=90, attack=17, armor=7,
                              speed=2),
-       'Oathbreaker': __Character(name='Oathbreaker', hp=60, attack=7, armor=5,
-                                  speed=4),
-       'Wizard': __Character(name='Wizard', hp=120, attack=8, armor=10,
+       'Oathbreaker': __Character(name='Oathbreaker', hp=60, attack=14,
+                                  armor=2, speed=4),
+       'Wizard': __Character(name='Wizard', hp=120, attack=10, armor=11,
                              speed=3)}
