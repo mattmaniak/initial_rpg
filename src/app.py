@@ -13,9 +13,12 @@ class App:
     def __init__(self):
         player_id = ''
 
-        print('Welcome to the Initial RPG game.\n')
-        for character_name in characters.all:
-            print(f'character_name - type \'{character_name[0].lower()}\'.')
+        print('Welcome to the mattmaniak\'s Initial RPG game.\n')
+        for ch in characters.all.values():
+            print(ch.name
+                  + f' ({ch.hp} hp, {ch.attack} attack, {ch.armor} armor,'
+                  + f' {ch.speed} speed)'
+                  + f' - type \'{ch.name[0].lower()}\'.')
 
         while self.player is None:
             player_id = input('Choose your character: ')
