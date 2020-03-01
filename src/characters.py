@@ -28,11 +28,13 @@ class __Character():
                   + f' ({enemy_attack} damage - {armor} armor) by'
                   + f' {enemy.name}.')
 
-            if self.is_alive(): return True
-            else: return False
+            if self.is_alive():
+                return True
+            else:
+                return False
 
     def __randomize_attribute(self, attribute):
-        """Retrun a pseudo-random value of a given attribute.
+        """Retrun a pseudo-random value with padding of a given attribute.
 
         Provide a little pseudo-randomness of the game.
         """
