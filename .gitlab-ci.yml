@@ -8,4 +8,7 @@ analyze:
   script: flake8 && lizard
 
 test:
-  script: python3 unit_test.py
+  script:
+    - python3 unit_test.py <<< k
+    - python3 unit_test.py <<< o
+    - python3 unit_test.py <<< w

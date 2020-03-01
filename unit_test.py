@@ -6,14 +6,14 @@ import src.characters as characters
 app = App()
 
 
-class AppCase(unittest.TestCase):
-    def test_init(self):
+class GameCase(unittest.TestCase):
+    def test_app(self):
         self.assertNotIn(app.player, characters.all.values())
         self.assertIn(app.enemy, characters.all.values())
 
 
 class CharacterCase(unittest.TestCase):
-    def test_is_alive(self):
+    def test_character(self):
         self.assertTrue(app.player.is_alive, app.player.hp > 0)
         self.assertTrue(app.enemy.is_alive, app.enemy.hp > 0)
 
