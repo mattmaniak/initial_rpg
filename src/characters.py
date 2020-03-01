@@ -9,11 +9,11 @@ class __Character():
         self.attack = attack
         self.armor = armor
         self.speed = speed
-        self.__hp = hp
+        self.hp = hp
         self.__prng_spread = 1
 
     def is_alive(self):
-        return self.__hp > 0
+        return self.hp > 0
 
     def receive_damage(self, enemy):
         enemy_speed = self.__randomize_attribute(enemy.speed)
@@ -21,9 +21,9 @@ class __Character():
         for i in range(enemy_speed):
             armor = self.__randomize_attribute(self.armor)
             enemy_attack = self.__randomize_attribute(enemy.attack)
-            self.__hp -= enemy_attack - armor
+            self.hp -= enemy_attack - armor
 
-            print(self.name + ' (current hp: ' + str(self.__hp) + ') lost '
+            print(self.name + ' (current hp: ' + str(self.hp) + ') lost '
                   + str(enemy_attack - armor) + ' hp (' + str(enemy_attack)
                   + ' damage - ' + str(armor) + ' armor) by '
                   + str(enemy.name) + '.')

@@ -3,17 +3,19 @@ import unittest
 from src.app import App
 import src.characters as characters
 
+app = App()
+
 
 class AppCase(unittest.TestCase):
-    app = App()
+    def test_init(self):
+        self.assertNotIn(app.player, characters.all.values())
+        self.assertIn(app.enemy, characters.all.values())
 
-    def test_characters(self):
-        self.assertNotIn(self.app.player, characters.all.values())
-        self.assertIn(self.app.enemy, characters.all.values())
 
-        print('Player ' + self.app.player.name + ' is in '
-              + str(characters.all) + '. Enemy ' + self.app.enemy.name
-              + ' is not.')
+class CharacterCase(unittest.TestCase):
+    def test_is_alive(self):
+        self.assertTrue(app.player.is_alive, app.player.hp > 0)
+        self.assertTrue(app.enemy.is_alive, app.enemy.hp > 0)
 
 
 if __name__ == '__main__':

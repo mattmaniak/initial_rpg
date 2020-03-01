@@ -24,7 +24,7 @@ class App:
                     self.player = characters.all[character_name]
 
         characters.all.pop(self.player.name)
-        __, self.enemy = choice(list(characters.all.items()))
+        self.enemy = choice(list(characters.all.values()))
 
     def round(self):
         """Main loop."""
