@@ -2,23 +2,19 @@ image: "python:3.6"
 
 before_script:
   - python3 --version
-  - pip3 install flake8 lizard
+  - pip install flake8 lizard
 
 stages:
   - analysis
   - test
 
-flake8:
+analysis:
   - stage: analysis
   - script:
   - flake8
-
-lizard:
-  - stage: analysis
-  - script:
   - lizard
 
-unittest:
+test:
   - stage: test
   - script:
   - python3 unit_test.py
