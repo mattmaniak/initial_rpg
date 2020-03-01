@@ -1,20 +1,11 @@
-image: "python:3.6"
+image: ubuntu
 
 before_script:
-  - python3 --version
-  - pip install flake8 lizard
+  - apt update && apt install python3
+  - pip3 install lizard flake8
 
-stages:
-  - analysis
-  - test
-
-analysis:
-  - stage: analysis
-  - script:
-  - flake8
-  - lizard
+analyze:
+  script: flake8 && lizard
 
 test:
-  - stage: test
-  - script:
-  - python3 unit_test.py
+  script: python3 unit_test.py
