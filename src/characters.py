@@ -21,17 +21,21 @@ class __Character():
         for i in range(enemy_speed):
             armor = self.__randomize_attribute(self.armor)
             enemy_attack = self.__randomize_attribute(enemy.attack)
-            self.hp -= enemy_attack - armor
+            lost_hp = enemy_attack - armor
+            death_damage = self.hp - lost_hp
+
+            if death_damage < 0:
+                enemy_attack += death_damage
+                self.hp = 0
+            else:
+                self.hp -= lost_hp
 
             print(self.name
                   + f' (current hp: {self.hp}, lost {enemy_attack - armor} hp'
                   + f' ({enemy_attack} damage - {armor} armor) by'
                   + f' {enemy.name}.')
 
-            if self.is_alive():
-                return True
-            else:
-                return False
+            return self.is_alive()
 
     def __randomize_attribute(self, attribute):
         """Retrun a pseudo-random value with padding of a given attribute.
