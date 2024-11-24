@@ -1,4 +1,5 @@
 from random import choice
+import time
 
 import src.characters as characters
 
@@ -47,4 +48,6 @@ class App:
                 if not self.player.receive_damage(self.enemy) \
                         or not self.enemy.receive_damage(self.player):
                     break
+
+            time.sleep(1)
             print('')
