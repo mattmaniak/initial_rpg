@@ -2,16 +2,16 @@
 
 import unittest
 
-from src.app import App
-import src.characters as characters
+import src.app
+import src.characters
 
-app = App()
+app = src.app.App()
 
 
 class GameCase(unittest.TestCase):
     def test_app(self):
-        self.assertNotIn(app.player, characters.all.values())
-        self.assertIn(app.enemy, characters.all.values())
+        self.assertNotIn(app.player, src.characters.all.values())
+        self.assertIn(app.enemy, src.characters.all.values())
 
 
 class CharacterCase(unittest.TestCase):

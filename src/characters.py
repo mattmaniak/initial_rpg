@@ -1,4 +1,4 @@
-from random import randint
+import random
 
 
 class __Character():
@@ -43,8 +43,8 @@ class __Character():
         Provide a little pseudo-randomness of the game.
         """
 
-        return randint(attribute - self.__prng_spread,
-                       attribute + self.__prng_spread)
+        return random.randint(attribute - self.__prng_spread,
+                              attribute + self.__prng_spread)
 
 
 all = {'Knight': __Character(name='Knight', hp=90, attack=17, armor=7,

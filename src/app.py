@@ -1,7 +1,7 @@
-from random import choice
+import random
 import time
 
-import src.characters as characters
+import src.characters
 
 
 class App:
@@ -9,13 +9,13 @@ class App:
 
     enemy = None
     player = None
-    player_starts = choice((False, True))
+    player_starts = random.choice((False, True))
 
     def __init__(self):
         player_id = ''
 
         print('Welcome to the mattmaniak\'s Initial RPG game.\n')
-        for ch in characters.all.values():
+        for ch in src.characters.all.values():
             print(ch.name
                   + f' ({ch.hp} hp, {ch.attack} attack, {ch.armor} armor,'
                   + f' {ch.speed} speed)'
@@ -23,12 +23,12 @@ class App:
 
         while self.player is None:
             player_id = input('Choose your character: ')
-            for character_name in characters.all:
+            for character_name in src.characters.all:
                 if player_id == character_name[0].lower():
-                    self.player = characters.all[character_name]
+                    self.player = src.characters.all[character_name]
 
-        characters.all.pop(self.player.name)
-        self.enemy = choice(list(characters.all.values()))
+        src.characters.all.pop(self.player.name)
+        self.enemy = random.choice(list(src.characters.all.values()))
 
     def round(self):
         """Main loop."""
